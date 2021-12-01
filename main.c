@@ -73,8 +73,8 @@ int lsh_help(char **args)
 {
     int i;
     printf("Stephen Brennan's LSH\n");
-    printf("Type program names and arguements, and hit enter.\n")
-    printf("The following are built in:\n")
+    printf("Type program names and arguements, and hit enter.\n");
+    printf("The following are built in:\n");
 
     for (i = 0; i < lsh_num_builtins(); i++) {
         printf(" %s\n", builtin_str[i]);
@@ -203,7 +203,7 @@ char **lsh_split_line(char *line)
     char *token;
 
     if (!tokens) {
-        fprintf(stdeer, "lsh: allocation error\n");
+        fprintf(stderr, "lsh: allocation error\n");
         exit(EXIT_FAILURE);
     }
 
@@ -216,7 +216,7 @@ char **lsh_split_line(char *line)
             bufsize += LSH_TOK_BUFSIZE;
             tokens = realloc(tokens, bufsize * sizeof(char*));
             if (!tokens) {
-                fprintf(stderr, "lsh: allocation error\n")
+                fprintf(stderr, "lsh: allocation error\n");
                 exit(EXIT_FAILURE);
             }
         }
@@ -264,5 +264,4 @@ int main(int argc, char **argv)
     //Perform any shutdown/cleanup.
 
     return EXIT_SUCCESS;
-}
 }
